@@ -35,11 +35,11 @@ namespace Generics
         }
         public static int MaxOf3(int a,int b,int c)
         {
-            if ((a > b && a > c) || (a >= b && a > c) || (a > b && a >= c))
+            if (a >= b && a >= c)
                 return a;
-            if ((b > a && b > c) || (b >= c && b > c) || (b > a && b >= c))
+            if (b >= a && b >= c)
                 return b;
-            if ((c > b && c > a) || (c >= b && c > a) || (c > b && c >= a))
+            if (c >= b && c >= a)
                 return c;
             return a;
         }
