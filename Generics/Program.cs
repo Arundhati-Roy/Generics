@@ -2,76 +2,46 @@
 
 namespace Generics
 {
-    public class PrintArray<T>
+    public class GenericMaxVAl<T> where T:IComparable
     {
-        private T[] a;
-        public PrintArray(T[] a)
+        public T a, b, c;
+        public GenericMaxVAl(T a, T b, T c)
         {
             this.a = a;
+            this.b = b;
+            this.c = c;
+
         }
-        public void toPrint()
+        public static T MaxOf3(T a, T b, T c)
         {
-            foreach (var i in a)
-            {
-                Console.WriteLine(i);
-            }
-            Console.WriteLine("\n");
+
+            if (a.CompareTo(b) >= 0 && a.CompareTo(c) >= 0)
+                return a;
+            if (b.CompareTo(a) >= 0 && b.CompareTo(c) >= 0)
+                return b;
+            if (c.CompareTo(b) >= 0 && c.CompareTo(a) >= 0)
+                return c;
+            return a;
+
         }
+        public T MaxMethod()
+        {
+            T max = GenericMaxVAl<T>.MaxOf3(a, b, c);
+            return max;
+        }
+        
     }
     class Program
     {
-       
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to generics demo!");
-            /*int[] intArray = { 1, 2, 4, 5, 6 };
-            double[] doubleArray = { 1.2, 3.4, 5.6 };
-            char[] charArray = { 'f', 'h', 'g', 'i' };
-            new PrintArray<int>(intArray).toPrint();
-            new PrintArray<double>(doubleArray).toPrint();
-            new PrintArray<char>(charArray).toPrint();*/
-            Console.WriteLine(MaxOf3(3, 4, 5));
-            Console.WriteLine(MaxOf3(3.4, 6.7, 1.2));
-            Console.WriteLine(MaxOf3(9.4, 6.7, 1.2));
-            Console.WriteLine(MaxOf3(3.4, 6.7, 13.2));
-            Console.WriteLine(MaxOf3(6.7, 6.7, 6.7));
-            Console.WriteLine(MaxOf3("dgh", "DGA", "d"));
-            Console.WriteLine(MaxOf3("6.7", "ksa", "fghsz"));
-
+            var m=new GenericMaxVAl<int>(3,4,5).MaxMethod();
+            var m2 = new GenericMaxVAl<double>(4.3, 6.7, 9.5).MaxMethod();
+            var m3 = new GenericMaxVAl<string>("dh3", "F", "5").MaxMethod();
+            Console.WriteLine(m3 , m,m2);
 
         }
-        public static int MaxOf3(int a,int b,int c)
-        {
-            if (a >= b && a >= c)
-                return a;
-            if (b >= a && b >= c)
-                return b;
-            if (c >= b && c >= a)
-                return c;
-            return a;
-        }
-        public static double MaxOf3(double a, double b, double c)
-        {
-            if (a >= b && a >= c)
-                return a;
-            if (b >= a && b >= c)
-                return b;
-            if (c >= b && c >= a)
-                return c;
-            return a;
-        }
-        public static string MaxOf3(string a, string b, string c)
-        {
-            if (a.CompareTo(b)>=0 && a.CompareTo(c)>=0)
-                return a;
-            if (b.CompareTo(a)>=0 && b.CompareTo(c)>=0)
-                return b;
-            if (c.CompareTo(b)>=0 && c.CompareTo(a)>=0)
-                return c;
-            return a;
-        }
-
-
-
     }
 }
