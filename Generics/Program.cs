@@ -24,25 +24,27 @@ namespace Generics
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to generics demo!");
-            int[] intArray = { 1, 2, 4, 5, 6 };
+            /*int[] intArray = { 1, 2, 4, 5, 6 };
             double[] doubleArray = { 1.2, 3.4, 5.6 };
             char[] charArray = { 'f', 'h', 'g', 'i' };
             new PrintArray<int>(intArray).toPrint();
             new PrintArray<double>(doubleArray).toPrint();
-            new PrintArray<char>(charArray).toPrint();
+            new PrintArray<char>(charArray).toPrint();*/
             Console.WriteLine(MaxOf3(3, 4, 5));
+            Console.WriteLine(MaxOf3(7, 4, 5));
+            Console.WriteLine(MaxOf3(3, 9, 5));
+
         }
         public static int MaxOf3(int a,int b,int c)
         {
-            if ((a > b && a > c) || (a >= b && a > c) || (a > b && a >= c))
+            if (a >= b && a >= c)
                 return a;
-            if ((b > a && b > c) || (b >= c && b > c) || (b > a && b >= c))
+            if (b >= a && b >= c)
                 return b;
-            if ((c > b && c > a) || (c >= b && c > a) || (c > b && c >= a))
+            if (c >= b && c >= a)
                 return c;
             return a;
         }
        
-        
     }
 }
