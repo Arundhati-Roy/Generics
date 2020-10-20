@@ -34,6 +34,10 @@ namespace Generics
             Console.WriteLine(MaxOf3(3.4, 6.7, 1.2));
             Console.WriteLine(MaxOf3(9.4, 6.7, 1.2));
             Console.WriteLine(MaxOf3(3.4, 6.7, 13.2));
+            Console.WriteLine(MaxOf3(6.7, 6.7, 6.7));
+            Console.WriteLine(MaxOf3("dgh", "DGA", "d"));
+            Console.WriteLine(MaxOf3("6.7", "ksa", "fghsz"));
+
 
         }
         public static int MaxOf3(int a,int b,int c)
@@ -53,6 +57,16 @@ namespace Generics
             if (b >= a && b >= c)
                 return b;
             if (c >= b && c >= a)
+                return c;
+            return a;
+        }
+        public static string MaxOf3(string a, string b, string c)
+        {
+            if (a.CompareTo(b)>=0 && a.CompareTo(c)>=0)
+                return a;
+            if (b.CompareTo(a)>=0 && b.CompareTo(c)>=0)
+                return b;
+            if (c.CompareTo(b)>=0 && c.CompareTo(a)>=0)
                 return c;
             return a;
         }
