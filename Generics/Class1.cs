@@ -13,32 +13,33 @@ namespace Generics
             this.data = data;
         }
     }
-    class LinkedListStack
+    class LinkedListQueue
     {
-        internal Node top;
-        public LinkedListStack()
-        { this.top = null; }
-        internal void Push(int data)
+        internal Node head;
+        internal void EnQueue(int data)
         {
             Node node = new Node(data);
-            if (this.top == null)
-                this.top = node;
+            if (this.head == null)
+                this.head = node;
             else
             {
-                node.next = this.top;
+                Node temp = head;
+                while (temp.next != null)
+                {
+                    temp = temp.next;
+                }
+                temp.next = node;
             }
-            this.top = node;
-            Console.WriteLine("{0} pushed into Linked list stack", node.data);
+            Console.WriteLine("{0} inserted into Linked list", node.data);
         }
         internal void Display()
         {
-            Node temp = this.top;
+            Node temp = this.head;
             if (temp == null)
             {
                 Console.WriteLine("LinkedList is empty");
                 return;
             }
-            Console.WriteLine("Elements inside Linked List stack");
             while (temp != null)
             {
                 Console.WriteLine(temp.data + " ");
@@ -47,38 +48,47 @@ namespace Generics
         }
         internal void Peek()
         {
-            if(this.top==null)
+            Node temp = this.head;
+            if (temp == null)
             {
-                Console.WriteLine("Stack is empty");
+                Console.WriteLine("LinkedList is empty");
                 return;
-            }
-            Console.WriteLine(this.top.data + " is in top of the stack");
-        }
-        internal void Pop()
-        {
-            if (this.top == null)
-            {
-                Console.WriteLine("Stack is empty");
-                return;
-            }
-            Console.WriteLine(this.top.data + " is in popped out of the stack");
-            this.top = this.top.next;
-        }
-        /*internal Node InsertAtGivenPos(int pos,int data)
-        {
-            if (pos < 1)
-                Console.WriteLine("Invalid position");
-            if(pos==1)
-            {
-                var newNode = new Node(data);
-                newNode.next = this.top;
-                top = newNode;
             }
             else
             {
-                while(pos-- !=0)
+                Console.WriteLine(temp.data + " is in first of queue");
+            }
+        }
+        internal void DeQueue()
+        {
+            Node temp = this.head;
+            if (temp == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+                return;
+            }
+            
+            else
+            { 
+                Console.WriteLine("Deleted element: " + temp.data);
+                this.head = temp.next;
+            }
+        }
+        /*internal Node InsertAtGivenPos(int pos, int data)
+        {
+            if (pos < 1)
+                Console.WriteLine("Invalid position");
+            if (pos == 1)
+            {
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
+            }
+            else
+            {
+                while (pos-- != 0)
                 {
-                    if(pos==1)
+                    if (pos == 1)
                     {
                         Node node = new Node(data);
                         node.next = this.head.next;
@@ -92,8 +102,8 @@ namespace Generics
             }
             Console.WriteLine("Inserted value is: " + head);
             return head;
-        }*/
-
+        }
+*/
 
 
     }
