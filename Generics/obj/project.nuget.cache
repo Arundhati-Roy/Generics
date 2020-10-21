@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "ddD/M99sh/tlPB0rUiXg+WZDuge6C5OmZWXjBqbajX8wxmDMyzbbwA8U00MJ8Kq7qG3IyVLpH8pG4I3MFP6F8A==",
+  "dgSpecHash": "Q1icA3V55SC7jLHETsNv3ufYJzIFgEG2SfrvAVUt9m6FDuKBZqpkZDKU52FmcASu2Qss7Vz7IzE+k06eajwlvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\priyadarshini roy\\source\\repos\\Generics\\Generics\\Generics.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\priyadarshini roy\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\priyadarshini roy\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\priyadarshini roy\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
+    "C:\\Users\\priyadarshini roy\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512"
+  ],
   "logs": []
 }
