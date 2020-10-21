@@ -8,14 +8,18 @@ namespace Generics
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to generics demo!");
-            LinkedList list = new LinkedList();
-            list.Add(56);
-            list.Add(89);
-            list.Add(43);
+            LinkedListStack list = new LinkedListStack();
+            list.Push(56);
+            list.Push(89);
+            list.Peek();
+            list.Push(43);
             list.Display();
-            //Console.WriteLine("search element" + list.Search(30));
-            Console.WriteLine("After insertion " + list.InsertAtGivenPos(2, 30));
+            list.Peek();
+            list.Push(67);
+            list.Push(90);
+            list.Pop();
             list.Display();
+            //list.Display();
 
         }
     }

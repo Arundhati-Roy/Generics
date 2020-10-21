@@ -13,48 +13,66 @@ namespace Generics
             this.data = data;
         }
     }
-    class LinkedList
+    class LinkedListStack
     {
-        internal Node head;
-        internal void Add(int data)
+        internal Node top;
+        public LinkedListStack()
+        { this.top = null; }
+        internal void Push(int data)
         {
             Node node = new Node(data);
-            if (this.head == null)
-                this.head = node;
+            if (this.top == null)
+                this.top = node;
             else
             {
-                Node temp = head;
-                while (temp.next != null)
-                {
-                    temp = temp.next;
-                }
-                temp.next = node;
+                node.next = this.top;
             }
-            Console.WriteLine("{0} inserted into Linked list", node.data);
+            this.top = node;
+            Console.WriteLine("{0} pushed into Linked list stack", node.data);
         }
         internal void Display()
         {
-            Node temp = this.head;
+            Node temp = this.top;
             if (temp == null)
             {
                 Console.WriteLine("LinkedList is empty");
                 return;
             }
+            Console.WriteLine("Elements inside Linked List stack");
             while (temp != null)
             {
                 Console.WriteLine(temp.data + " ");
                 temp = temp.next;
             }
         }
-        internal Node InsertAtGivenPos(int pos,int data)
+        internal void Peek()
+        {
+            if(this.top==null)
+            {
+                Console.WriteLine("Stack is empty");
+                return;
+            }
+            Console.WriteLine(this.top.data + " is in top of the stack");
+        }
+        internal void Pop()
+        {
+            if (this.top == null)
+            {
+                Console.WriteLine("Stack is empty");
+                return;
+            }
+            Console.WriteLine(this.top.data + " is in popped out of the stack");
+            this.top = this.top.next;
+        }
+        /*internal Node InsertAtGivenPos(int pos,int data)
         {
             if (pos < 1)
                 Console.WriteLine("Invalid position");
             if(pos==1)
             {
                 var newNode = new Node(data);
-                newNode.next = this.head;
-                head = newNode;
+                newNode.next = this.top;
+                top = newNode;
             }
             else
             {
@@ -74,9 +92,9 @@ namespace Generics
             }
             Console.WriteLine("Inserted value is: " + head);
             return head;
-        }
-        
+        }*/
 
-        
+
+
     }
 }
